@@ -67,7 +67,7 @@ story = st.session_state.story
 # Sidebar
 with st.sidebar:
     # Add Mentat icon
-    st.image("icons/mentat_logo.svg", width=300)
+    st.image("icons/mentat_logo.png", width=300)
     
     # Small spacing below logo
     st.markdown("")
@@ -260,7 +260,7 @@ if st.session_state.get("project_started", False):
                                         st.markdown(f"- {q}")
                 else:
                     # User messages - show normally
-                    with st.chat_message("user", avatar="icons/user_Icon.png"):
+                    with st.chat_message("user", avatar="icons/user_icon.png"):
                         st.markdown(message["content"])
         elif st.session_state.current_step >= 2:
             # For Step 2 and beyond, don't show any previous chat messages
@@ -282,7 +282,7 @@ Please share your strategic situation or question, and I'll help extract the key
                 st.rerun()
 
             # User input for strategic prompt
-            with st.chat_message("user", avatar="icons/user_Icon.png"):
+            with st.chat_message("user", avatar="icons/user_icon.png"):
                 st.markdown("### Share your strategic situation:")
                 # Fresh text area for each new project
                 user_prompt = st.text_area("", 
@@ -362,7 +362,7 @@ Please share your strategic situation or question, and I'll help extract the key
                     with st.chat_message("assistant", avatar="icons/bot_icon.png"):
                         st.markdown(message["content"])
                 else:
-                    with st.chat_message("user", avatar="icons/user_Icon.png"):
+                    with st.chat_message("user", avatar="icons/user_icon.png"):
                         st.markdown(message["content"])
             
             # Create containers for each category with visual attention
@@ -476,7 +476,7 @@ Please share your strategic situation or question, and I'll help extract the key
             st.markdown(clarification_text)
             
             # New conversational prompt for clarification
-            with st.chat_message("user", avatar="icons/user_Icon.png"):
+            with st.chat_message("user", avatar="icons/user_icon.png"):
                 clarification_input = st.text_area("", 
                                                 placeholder="Provide additional details or clarifications about your strategic focus...",
                                                 height=100,
