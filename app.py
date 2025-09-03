@@ -42,6 +42,26 @@ from mentat_protocol import run_step, ENVELOPES
 
 st.set_page_config(page_title="Strategy Workbench (Steps 1–3)", layout="wide")
 
+# Password protection
+if "authenticated" not in st.session_state:
+    st.session_state.authenticated = False
+
+if not st.session_state.authenticated:
+    st.title("🔒 Strategy Workbench")
+    st.markdown("Please enter the password to access the application.")
+    
+    password_input = st.text_input("Password:", type="password", key="password_input")
+    
+    if st.button("Login"):
+        # Change this password to whatever you want
+        if password_input == "strategy2024":
+            st.session_state.authenticated = True
+            st.rerun()
+        else:
+            st.error("Incorrect password. Please try again.")
+    
+    st.stop()  # Stop execution if not authenticated
+
 # Initialize session state
 if "story" not in st.session_state:
     st.session_state.story = StrategyStory()
