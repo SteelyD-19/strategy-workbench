@@ -66,20 +66,8 @@ story = st.session_state.story
 
 # Sidebar
 with st.sidebar:
-    # Add Mentat icon with theme adaptation
-    st.markdown("""
-    <style>
-    .mentat-logo {
-        content: url('icons/Mentat_Logo_LightBackground.svg');
-    }
-    @media (prefers-color-scheme: dark) {
-        .mentat-logo {
-            content: url('icons/Mentat_Logo_DarkBackground.svg');
-        }
-    }
-    </style>
-    <img class="mentat-logo" width="300">
-    """, unsafe_allow_html=True)
+    # Add Mentat icon
+    st.image("icons/Mentat_Logo.svg", width=300)
     
     # Small spacing below logo
     st.markdown("")
