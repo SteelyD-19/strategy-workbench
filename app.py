@@ -68,7 +68,7 @@ story = st.session_state.story
 # Sidebar
 with st.sidebar:
     # Add Mentat icon
-    st.image("icons/mentat_logo.png", width=300)
+    st.image("icons/mentat_logo.svg", width=300)
     
     # Small spacing below logo
     st.markdown("")
