@@ -69,6 +69,22 @@ with st.sidebar:
     # Add Mentat icon with reduced size
     st.image("icons/Mentat_Updated.svg", width=300)
     
+    # Add mentat words with theme adaptation
+    st.markdown("""
+    <style>
+    .mentat-words {
+        filter: invert(1);
+    }
+    @media (prefers-color-scheme: light) {
+        .mentat-words {
+            filter: invert(0);
+        }
+    }
+    </style>
+    """, unsafe_allow_html=True)
+    
+    st.markdown('<img src="icons/mentat_words.svg" width="200" class="mentat-words">', unsafe_allow_html=True)
+    
     # Small spacing below logo
     st.markdown("")
     
