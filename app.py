@@ -349,6 +349,15 @@ Please share your strategic situation or question, and I'll help extract the key
 
         # Step 1.5: Conversational Clarification
         elif st.session_state.current_step == 1.5:
+            # Display all chat messages including the initial response
+            for message in st.session_state.chat_messages:
+                if message["role"] == "assistant":
+                    with st.chat_message("assistant", avatar="icons/bot_icon.png"):
+                        st.markdown(message["content"])
+                else:
+                    with st.chat_message("user", avatar="icons/user_Icon.png"):
+                        st.markdown(message["content"])
+            
             # Create containers for each category with visual attention
             st.markdown("""
             <style>
