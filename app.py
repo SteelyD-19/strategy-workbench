@@ -96,6 +96,13 @@ with st.sidebar:
                         st.session_state.assessments_recommended = []
                         st.session_state.sub_assessments_generated = {}
                         st.session_state.step2_initialized = False
+                        # Clear any cached responses to prevent cross-session contamination
+                        if "mentat_response" in st.session_state:
+                            del st.session_state["mentat_response"]
+                        if "mentat_defer_signal" in st.session_state:
+                            del st.session_state["mentat_defer_signal"]
+                        if "project_context" in st.session_state:
+                            del st.session_state["project_context"]
                         st.rerun()
                     else:
                         st.error("Please enter a project name to continue")
@@ -118,6 +125,13 @@ with st.sidebar:
             st.session_state.assessments_recommended = []
             st.session_state.sub_assessments_generated = {}
             st.session_state.step2_initialized = False
+            # Clear any cached responses to prevent cross-session contamination
+            if "mentat_response" in st.session_state:
+                del st.session_state["mentat_response"]
+            if "mentat_defer_signal" in st.session_state:
+                del st.session_state["mentat_defer_signal"]
+            if "project_context" in st.session_state:
+                del st.session_state["project_context"]
             st.rerun()
 
     st.markdown("### Project Status")
@@ -198,7 +212,7 @@ if st.session_state.get("project_started", False):
             
             for i, message in enumerate(st.session_state.chat_messages):
                 if message["role"] == "assistant":
-                    # Skip the initial welcome message (first assistant message)
+                    # Always show the initial welcome message (first assistant message)
                     if i == 0 and "Welcome to the Strategy Workbench" in message["content"]:
                         with st.chat_message("assistant", avatar="icons/bot_icon.png"):
                             st.markdown(message["content"])
@@ -354,7 +368,7 @@ Please share your strategic situation or question, and I'll help extract the key
                 padding: 8px 12px;
                 margin: 4px 0;
                 border: 1px solid #4a4a4a;
-                color: currentColor;
+                color: white;
                 min-height: 40px;
                 display: flex;
                 align-items: center;
