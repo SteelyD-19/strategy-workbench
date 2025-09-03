@@ -66,32 +66,8 @@ story = st.session_state.story
 
 # Sidebar
 with st.sidebar:
-    # Add Mentat icon with reduced size and theme adaptation
-    st.markdown("""
-    <style>
-    .mentat-logo {
-        filter: invert(1);
-    }
-    @media (prefers-color-scheme: light) {
-        .mentat-logo {
-            filter: invert(0);
-        }
-    }
-    </style>
-    """, unsafe_allow_html=True)
-    
-    st.markdown('<img src="icons/Mentat_Updated.svg" width="300" class="mentat-logo">', unsafe_allow_html=True)
-    
-    # Add mentat words with blue color
-    st.markdown("""
-    <style>
-    .mentat-words {
-        filter: hue-rotate(200deg) saturate(2) brightness(0.8);
-    }
-    </style>
-    """, unsafe_allow_html=True)
-    
-    st.markdown('<img src="icons/mentat_words.svg" width="200" class="mentat-words">', unsafe_allow_html=True)
+    # Add Mentat icon with reduced size
+    st.image("icons/Mentat_Updated.svg", width=300)
     
     # Small spacing below logo
     st.markdown("")
