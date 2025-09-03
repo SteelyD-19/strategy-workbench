@@ -66,35 +66,8 @@ story = st.session_state.story
 
 # Sidebar
 with st.sidebar:
-    # Add Mentat icon with theme detection
-    st.markdown("""
-    <div id="logo-container">
-        <img id="light-logo" src="icons/Mentat_Logo_LightBackground.svg" width="300" style="display: none;">
-        <img id="dark-logo" src="icons/Mentat_Logo_DarkBackground.svg" width="300" style="display: none;">
-    </div>
-    
-    <script>
-    function updateLogo() {
-        const isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-        const lightLogo = document.getElementById('light-logo');
-        const darkLogo = document.getElementById('dark-logo');
-        
-        if (isDark) {
-            lightLogo.style.display = 'none';
-            darkLogo.style.display = 'block';
-        } else {
-            lightLogo.style.display = 'block';
-            darkLogo.style.display = 'none';
-        }
-    }
-    
-    // Update on load
-    updateLogo();
-    
-    // Update when theme changes
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', updateLogo);
-    </script>
-    """, unsafe_allow_html=True)
+    # Add Mentat icon with reduced size
+    st.image("icons/Mentat_Logo_LightBackground.svg", width=300)
     
     # Small spacing below logo
     st.markdown("")
