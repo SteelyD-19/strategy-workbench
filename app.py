@@ -319,7 +319,7 @@ Please share your strategic situation or question, and I'll help extract the key
                     except Exception as e:
                         # Fall back to simple analysis if API fails
                         st.error(f"AI analysis failed: {str(e)}")
-                        ai_response = ""
+                        ai_response = "I apologize, but I'm having trouble analyzing your strategic prompt right now. Please try again or contact support if the issue persists."
                         st.session_state.mentat_response = None
                         st.session_state.mentat_defer_signal = False
                     
@@ -342,7 +342,7 @@ Please share your strategic situation or question, and I'll help extract the key
                 text-align: right;
                 font-weight: bold;
                 padding-right: 15px;
-                color: white;
+                color: currentColor;
                 display: flex;
                 align-items: center;
                 justify-content: flex-end;
@@ -354,7 +354,7 @@ Please share your strategic situation or question, and I'll help extract the key
                 padding: 8px 12px;
                 margin: 4px 0;
                 border: 1px solid #4a4a4a;
-                color: white;
+                color: currentColor;
                 min-height: 40px;
                 display: flex;
                 align-items: center;
