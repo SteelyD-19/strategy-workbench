@@ -80,7 +80,8 @@ with st.sidebar:
                 st.rerun()
         else:
             project_name = st.text_input("Project Name:", 
-                                       placeholder="Enter project name...")
+                                       placeholder="Enter project name...",
+                                       key="project_name_input")
             
             col1, col2 = st.columns(2)
             with col1:
@@ -103,6 +104,9 @@ with st.sidebar:
                             del st.session_state["mentat_defer_signal"]
                         if "project_context" in st.session_state:
                             del st.session_state["project_context"]
+                        # Clear project name input
+                        if "project_name_input" in st.session_state:
+                            del st.session_state["project_name_input"]
                         st.rerun()
                     else:
                         st.error("Please enter a project name to continue")
@@ -132,6 +136,9 @@ with st.sidebar:
                 del st.session_state["mentat_defer_signal"]
             if "project_context" in st.session_state:
                 del st.session_state["project_context"]
+            # Clear project name input
+            if "project_name_input" in st.session_state:
+                del st.session_state["project_name_input"]
             st.rerun()
 
     st.markdown("### Project Status")
